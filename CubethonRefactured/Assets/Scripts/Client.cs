@@ -3,7 +3,7 @@
 
 public class Client : MonoBehaviour
 {
-
+    public iStates currentState;
     //make force
     private float movementForce = 10f;
 
@@ -18,6 +18,7 @@ public class Client : MonoBehaviour
     {
         //find gamemanager from scene
         gameManager = FindObjectOfType<GameManager>();
+        currentState = new StandingPlayerState();
     }
 
     void FixedUpdate()
