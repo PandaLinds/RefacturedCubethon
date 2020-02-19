@@ -14,12 +14,12 @@ public class StandingPlayerState : iStates
     public void Execute(Player player)
     {
         Debug.Log("executing standing");
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetMouseButton(0))
         {
             DuckingPlayerState DuckingState = new DuckingPlayerState();
             DuckingState.Enter(player);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             JumpingPlayerState jumpingState = new JumpingPlayerState();
             jumpingState.Enter(player);
@@ -41,7 +41,7 @@ public class DuckingPlayerState : iStates
     public void Execute(Player player)
     {
         Debug.Log("executing ducking");
-        if (!Input.GetKey(KeyCode.S))
+        if (!Input.GetMouseButton(0))
         {
             Rigidbody rbPlayer = player.GetComponent<Rigidbody>();
             rbPlayer.transform.localScale *= 2f;
@@ -69,7 +69,7 @@ public class JumpingPlayerState : iStates
             StandingPlayerState standingState = new StandingPlayerState();
             standingState.Enter(player);
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetMouseButtonDown(2))
         {
             DivingPlayerState DivingState = new DivingPlayerState();
             DivingState.Enter(player);
@@ -81,23 +81,19 @@ public class DivingPlayerState : iStates
 {
     public void Enter(Player player)
     {
-        Debug.Log("Entering standing");
+        Debug.Log("Entering Diving");
         player.currentState = this;
-
+        Rigidbody rbPlayer = player.GetComponent<Rigidbody>();
+        rbPlayer.AddForce(0,-1000*Time.deltaTime,0,ForceMode.VelocityChange);
     }
 
     public void Execute(Player player)
     {
-        Debug.Log("executing standing");
-        if (Input.GetKeyDown(KeyCode.S))
+        Debug.Log("executing diving");
+        if(Physics.Raycast(player.transform.position, Vector3.down, 0.55f))
         {
-            DuckingPlayerState DuckingState = new DuckingPlayerState();
-            DuckingState.Enter(player);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            JumpingPlayerState jumpingState = new JumpingPlayerState();
-            jumpingState.Enter(player);
+            StandingPlayerState standingState = new StandingPlayerState();
+            standingState.Enter(player);
         }
     }
 }
