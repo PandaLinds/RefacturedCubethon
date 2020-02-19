@@ -69,10 +69,15 @@ public class JumpingPlayerState : iStates
             StandingPlayerState standingState = new StandingPlayerState();
             standingState.Enter(player);
         }
-        else if (Input.GetMouseButtonDown(2))
+        else if (Input.GetMouseButtonDown(1))
         {
             DivingPlayerState DivingState = new DivingPlayerState();
             DivingState.Enter(player);
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            DuckingPlayerState DuckingState = new DuckingPlayerState();
+            DuckingState.Enter(player);
         }
     }
 }

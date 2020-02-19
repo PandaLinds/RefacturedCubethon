@@ -15,4 +15,12 @@ public class Player : MonoBehaviour
     {
         currentState.Execute(this);
     }
+
+    void OnGUI()
+    {
+        GUI.color = Color.black;
+        GUI.Label(new Rect(10, 10, 500, 20), "Jump - Space");
+        GUI.Label(new Rect(10, 30, 500, 20), "Duck - Right Mouse Click");
+        GUI.Label(new Rect(10, 50, 500, 20), "Dive - [Jump and] Left Mouse Click");
+    }
 }
