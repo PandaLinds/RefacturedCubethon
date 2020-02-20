@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface iStates 
 {
-    void Execute(Player player);
+    void Execute(Client player);
 }
