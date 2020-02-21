@@ -4,8 +4,8 @@ public class FollowPlayer : MonoBehaviour
 {
 
     private GameObject player;
-    private Vector3 offset = new Vector3(0, 1, -5);
-    private Vector3 camRotation = new Vector3(0,0,0);
+    private Vector3 offset = new Vector3(0, 8,-20);
+    private Vector3 camRotation = new Vector3(15,0,0);
 
     void Start () 
     {

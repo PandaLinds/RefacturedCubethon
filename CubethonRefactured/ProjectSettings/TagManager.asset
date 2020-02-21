@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - Extra Points
   - Normal
+  - LevelCompleteUI
   layers:
   - Default
   - TransparentFX

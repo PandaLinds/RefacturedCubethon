@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 
     //get or set veriables needed for method
     bool gameHasEnded = false;
+    public GameObject EndPoint;
     public GameObject player;
     public float restartDelay = 4f;
     public GameObject completeLevelUI;
     public bool instantReplay = false;
+    private bool endPlaced = false;
     float replayStartTime;
 
     void Start()
@@ -37,10 +39,16 @@ public class GameManager : MonoBehaviour
         {
             InstantReplay();
         }
+        GameObject[] NormPoints = GameObject.FindGameObjectsWithTag("Normal");
+        if (NormPoints.Length == 0 && !endPlaced)
+        {
+            endPlaced = true;
+            Instantiate(EndPoint.transform, new Vector3(0,2,0), new Quaternion(0,15,0,0));
+        }
     }
 
     public void CompleteLevel()
-    {  
+    {
         //pull level complete panel when trigger hit
         completeLevelUI.SetActive(true);
     }

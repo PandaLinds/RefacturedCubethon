@@ -43,5 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060bce8c730ecb14aaf56105d9211369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndPoint: {fileID: 4550325286242261419, guid: 7167b984ce84d194a8dc84a8f34b4507,
+    type: 3}
+  player: {fileID: 597813022099849545, guid: 0189a3db0f26855838b4bb5d08c0a8b7, type: 3}
   restartDelay: 1
-  completeLevelUI: {fileID: 0}
+  completeLevelUI: {fileID: 5512558298460113702, guid: 8493b2c0c0f1c73469ef34fce11d31a2,
+    type: 3}
+  instantReplay: 0

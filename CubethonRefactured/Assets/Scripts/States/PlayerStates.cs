@@ -63,7 +63,7 @@ public class MovingPlayerState : iStates
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical);
-        player.transform.Translate(direction.normalized * Time.deltaTime * mforce);
+        player.transform.Translate(direction.normalized * Time.deltaTime * mforce, Space.World);
         
     }
 }
