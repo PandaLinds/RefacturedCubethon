@@ -39,10 +39,11 @@ public class Client : MonoBehaviour
     void OnGUI()
     {
         GUI.color = Color.black;
-        GUI.Label(new Rect(10, 10, 500, 20), "RUN INTO THE BALLS!");
-        GUI.Label(new Rect(10, 30, 500, 20), "Move - AWSD");
-        GUI.Label(new Rect(10, 50, 500, 20), "Jump - Space");
-        GUI.Label(new Rect(10, 70, 500, 20), "Duck - Right Mouse Click");
-        GUI.Label(new Rect(10, 90, 500, 20), "Dive - [Jump and] Left Mouse Click");
+        GUI.Label(new Rect(10, 10, 500, 20), "RUN INTO THE SPHERES!");
+        GUI.Label(new Rect(10, 25, 500, 20), "Move - AWSD");
+        GUI.Label(new Rect(10, 40, 500, 20), "Jump - Space");
+        GUI.Label(new Rect(10, 55, 500, 20), "Duck - Right Mouse Click");
+        GUI.Label(new Rect(10, 70, 500, 20), "Dive - [Jump and] Left Mouse Click");
+        GUI.Label(new Rect(10, 85, 500, 20), "Dive and Duck into spheres");
     }
 }
