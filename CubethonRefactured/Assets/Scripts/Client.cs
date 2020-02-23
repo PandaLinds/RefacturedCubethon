@@ -4,6 +4,7 @@
 public class Client : MonoBehaviour
 {
     public iStates currentState;
+    public iLevelStates currentLevelState;
     //make force
     private float movementForce = 10f;
 
@@ -19,11 +20,13 @@ public class Client : MonoBehaviour
         //find gamemanager from scene
         gameManager = FindObjectOfType<GameManager>();
         currentState = new StandingPlayerState();
+        currentLevelState = new PlayingState();
     }
 
     void FixedUpdate()
     {
         currentState.Execute(this);
+        currentLevelState.Execute(this);
 
         //game over if player falls
         if (gameObject.transform.position.y < -1f)

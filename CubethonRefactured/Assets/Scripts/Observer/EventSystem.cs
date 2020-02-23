@@ -22,6 +22,7 @@ public class EventSystem : MonoBehaviour
 
     private void Pts(GameObject Obstical)
     {
+        Client client = FindObjectOfType<Client>();
         //depending on the tag of the game object, different points will be rewarded then delete the object
         if (Obstical.tag == "Normal")
         {
@@ -30,12 +31,26 @@ public class EventSystem : MonoBehaviour
         }
         else if (Obstical.tag == "Extra Points")
         {
-            Score.scoreNumber+=5;
+            if(client.currentState.ToString() == "DivingPlayerState")
+            {
+                Score.scoreNumber+=50;
+            }
+            else
+            {
+                Score.scoreNumber+=5;
+            }
             Destroy(Obstical, 0.75f);
         }
         else if (Obstical.tag == "Obstacle")
         {
-            Score.scoreNumber--;
+            if(client.currentState.ToString() == "DuckingPlayerState")
+            {
+                Score.scoreNumber+=10;
+            }
+            else
+            {
+                Score.scoreNumber--;
+            }
             Destroy(Obstical, 0.75f);
         }
     }
